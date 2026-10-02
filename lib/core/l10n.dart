@@ -93,7 +93,7 @@ class AppText {
       'లేఖన సూచన చేర్చండి', 'पवित्रशास्त्र संदर्भ जोड़ें');
   String get chapterField => _t('Chapter', 'అధ్యాయం', 'अध्याय');
   String get verseField =>
-      _t('Verse (optional)', 'వచనం (ఐచ్ఛికం)', 'वचन (वैकल्पिक)');
+      _t('Verse (optional)', 'వచనం', 'वचन (वैकल्पिक)');
   String get verseFieldHint =>
       _t('16 or 16-18', '16 లేదా 16-18', '16 या 16-18');
   String errChapter(int max) => _t(
