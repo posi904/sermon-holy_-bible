@@ -1039,6 +1039,9 @@ class _AddReferenceSheetState extends State<_AddReferenceSheet> {
                     helperText: t.rangeHint(maxChapter),
                     errorText:
                         _chapterOutOfRange ? t.errChapter(maxChapter) : null,
+                    // Wrap instead of ellipsising on high-DPI / large-font
+                    // devices, where the range message needs a second line.
+                    errorMaxLines: 2,
                   ),
                 ),
               ),
@@ -1061,6 +1064,9 @@ class _AddReferenceSheetState extends State<_AddReferenceSheet> {
                         ? t.rangeHint(maxVerse)
                         : t.verseFieldHint,
                     errorText: _verseError,
+                    // Wrap instead of ellipsising on high-DPI / large-font
+                    // devices, where the message needs a second line.
+                    errorMaxLines: 2,
                   ),
                 ),
               ),
