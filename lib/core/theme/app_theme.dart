@@ -19,7 +19,6 @@ class AppColors {
   // hardcode ad-hoc colors).
   static const Color charcoalMuted = Color(0xFF6B665C);
   static const Color creamDark = Color(0xFFDCD4C2);
-  static const Color success = Color(0xFF3F7D5C);
   static const Color divider = Color(0xFFD8D0BE);
 
   // ==========================================================================
@@ -45,10 +44,6 @@ class AppColors {
 
   static const Color surfacePrimary = Color(0xFFF1EAE0);
   static const Color surfaceSecondary = Color(0xFFFAF2E6);
-
-  /// Warm parchment card faces owned by the reader (book picker / sheets).
-  static const Color surfaceCard = Color(0xFFF7F1E7);
-  static const Color surfaceMuted = Color(0xFFF4ECE1);
 
   /// Warm linen Cream (#FBF8F2) — the ONE paper face of the book-picker tile
   /// and of every resting picker cell (chapter / verse boxes). NEVER pure white:
@@ -81,12 +76,7 @@ class AppColors {
   static const Color borderDefault = Color(0xFFD8C4A0);
   static const Color borderStrong = Color(0xFFC48B36);
 
-  /// Low-contrast separator hairline.
-  static const Color dividerSubtle = Color(0xFFE4D8BF);
-
   static const Color iconPrimary = Color(0xFFB87B28);
-  static const Color iconSecondary = textSecondary;
-  static const Color iconMuted = textMuted;
   static const Color iconInteractive = iconPrimary;
   static const Color iconOnAccent = Color(0xFFFFFFFF);
 
@@ -111,25 +101,21 @@ class AppColors {
   //  * Parallel — professional blue.
 
   // English — warm amber / golden brand.
-  static const Color languageEnglish = Color(0xFFB87B28);
   static const Color languageEnglishSelected = Color(0xFFA3641C);
   static const Color languageEnglishSurface = Color(0xFFF8EEDA);
   static const Color languageEnglishBorder = Color(0xFFC48B36);
 
   // Telugu — professional green family.
-  static const Color languageTelugu = Color(0xFF4E7A52);
   static const Color languageTeluguSelected = Color(0xFF3F6B45);
   static const Color languageTeluguSurface = Color(0xFFE9F0E3);
   static const Color languageTeluguBorder = Color(0xFF8FAE7E);
 
   // Hindi — professional pink / rose family.
-  static const Color languageHindi = Color(0xFFB05C74);
   static const Color languageHindiSelected = Color(0xFF9E4E64);
   static const Color languageHindiSurface = Color(0xFFF7E9EC);
   static const Color languageHindiBorder = Color(0xFFD2A6AE);
 
   // Parallel — professional blue.
-  static const Color languageParallel = Color(0xFF3D6E9C);
   static const Color languageParallelSelected = Color(0xFF2C5F8A);
   static const Color languageParallelSurface = Color(0xFFE7EEF6);
   static const Color languageParallelBorder = Color(0xFF9FB6CC);
@@ -138,9 +124,9 @@ class AppColors {
 /// Shared elevation recipes for the reader's micro-elevated floating surfaces.
 ///
 /// Single source of truth for the two shadow depths used across the reader:
-/// the 12px tactile lift on header controls/cards and the whisper-soft 8px
-/// lift under the standalone language pills. These are legitimate Material
-/// elevation effects (soft depth), not decorative gradients.
+/// the 12px tactile lift on header controls/cards and the 1.5dp whisper lift on
+/// the warm-cream paper faces (verse cards, book tiles, picker cells). These are
+/// legitimate Material elevation effects (soft depth), not decorative gradients.
 class AppElevation {
   AppElevation._();
 
@@ -162,15 +148,6 @@ class AppElevation {
           color: AppColors.shadow.withValues(alpha: 0.05),
           blurRadius: 4,
           offset: const Offset(0, 1.5),
-        ),
-      ];
-
-  /// Whisper-soft 8px lift for the standalone language pills.
-  static List<BoxShadow> get pill => [
-        BoxShadow(
-          color: AppColors.shadow.withValues(alpha: 0.05),
-          blurRadius: 8,
-          offset: const Offset(0, 2),
         ),
       ];
 }
@@ -298,29 +275,11 @@ class ReadingTheme {
 class AppTextStyles {
   AppTextStyles._();
 
-  static TextStyle verseEnglish(double scale) => TextStyle(
-        fontSize: 16 * scale,
-        height: 1.55,
-        color: AppColors.textPrimary,
-      );
-
-  static TextStyle verseTelugu(double scale) => TextStyle(
-        fontSize: 16 * scale,
-        height: 1.7,
-        color: AppColors.textPrimary,
-      );
-
   static const TextStyle sectionLabel = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w700,
     letterSpacing: 0.6,
     color: AppColors.textSecondary,
-  );
-
-  static const TextStyle scriptureReference = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w700,
-    color: AppColors.blue,
   );
 }
 

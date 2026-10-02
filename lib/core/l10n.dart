@@ -81,9 +81,6 @@ class AppText {
       'మీ ధ్యానం, ప్రార్థనలు, నేర్చుకున్నవి…', 'आपका मनन, प्रार्थनाएँ, सीख…');
   String get pointHint => _t('Add a sermon point…',
       'ప్రసంగ అంశాన్ని చేర్చండి…', 'प्रवचन का बिंदु जोड़ें…');
-  String get addPointTip => _t('Add point', 'అంశం చేర్చు', 'बिंदु जोड़ें');
-  String get addRefTip => _t('Add scripture reference', 'లేఖన సూచన చేర్చు',
-      'संदर्भ जोड़ें');
   String get openInBible =>
       _t('Open in Bible', 'బైబిల్‌లో తెరవండి', 'बाइबल में खोलें');
   String get verseTextMissing => _t(
@@ -190,8 +187,6 @@ class AppText {
       'మీ పఠన చరిత్రను తొలగించాలా?', 'पठन इतिहास साफ़ करें?');
   String get today => _t('Today', 'ఈ రోజు', 'आज');
   String get yesterday => _t('Yesterday', 'నిన్న', 'कल');
-  String get wholeChapter =>
-      _t('Whole chapter', 'మొత్తం అధ్యాయం', 'पूरा अध्याय');
   String get themeSheetTitle =>
       _t('Reading theme', 'పఠన థీమ్', 'पठन थीम');
   String get themeSheetNote => _t(
