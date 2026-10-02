@@ -1,0 +1,176 @@
+﻿Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  jni 1.0.3 (1.1.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.0 (1.19.0 available)
+  objective_c 9.5.0 (9.6.2 available)
+  record_use 0.6.0 (1.1.1 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.11 (0.7.14 available)
+  vector_math 2.2.0 (2.4.3 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart
+00:00 +0: Semantic token identities English is the warm amber / golden brand family
+00:00 +1: Semantic token identities Telugu is the professional green family
+00:00 +2: Semantic token identities Hindi is the professional pink / rose family
+00:00 +3: Semantic token identities Parallel is the professional blue family
+00:00 +4: Semantic token identities the four selected identities are mutually distinct
+00:00 +5: Selected vs unselected are deterministic English selected fill is solid, dark and readable
+00:00 +6: Selected vs unselected are deterministic English resting surface is a quiet light tint
+00:00 +7: Selected vs unselected are deterministic Telugu selected fill is solid, dark and readable
+00:00 +8: Selected vs unselected are deterministic Telugu resting surface is a quiet light tint
+00:00 +9: Selected vs unselected are deterministic Hindi selected fill is solid, dark and readable
+00:00 +10: Selected vs unselected are deterministic Hindi resting surface is a quiet light tint
+00:00 +11: Selected vs unselected are deterministic Parallel selected fill is solid, dark and readable
+00:00 +12: Selected vs unselected are deterministic Parallel resting surface is a quiet light tint
+00:00 +13: Reader controls expose English, Telugu, Hindi and Parallel on one row
+00:00 +14: Reader controls switch selected language and Parallel mode without overflow
+00:00 +15: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the reading face is the ReaderPalette study-bible paper
+00:00 +16: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the picker keeps its warm linen cream face + sandalwood hairline
+00:00 +17: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the cream elevation is a soft 1-2dp micro-lift
+00:00 +18: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the reading stack paints its warm paper panel, never white
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following TestFailure was thrown running a test:
+Expected: an object with length of <1>
+  Actual: []
+   Which: has length of <0>
+the reading stack must paint its warm paper panel
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart:244:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart line 244
+The test description was:
+  the reading stack paints its warm paper panel, never white
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+00:01 +18 -1: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the reading stack paints its warm paper panel, never white [E]
+  Test failed. See exception logs above.
+  The test description was: the reading stack paints its warm paper panel, never white
+  
+00:01 +18 -1: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar resting book tiles are raised parchment rows
+00:01 +19 -1: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the bottom bar switches instantly, with no flicker sources
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following TestFailure was thrown running a test:
+Expected: empty
+  Actual: <null>
+NoSuchMethodError: The getter 'isEmpty' was called on null.
+Receiver: null
+Tried calling: isEmpty at #0      Object.noSuchMethod (dart:core-patch/object_patch.dart:38:5)
+#1      _Empty.matches (package:matcher/src/core_matchers.dart:18:25)
+#2      _expect (package:matcher/src/expect/expect.dart:176:30)
+#3      expect (package:matcher/src/expect/expect.dart:65:3)
+#4      expect (package:flutter_test/src/widget_tester.dart:473:18)
+#5      main.<anonymous closure>.<anonymous closure>
+(file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart:311:7)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure>
+(package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#8      StackZoneSpecification._registerCallback.<anonymous closure>
+(package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart:311:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart line 311
+The test description was:
+  the bottom bar switches instantly, with no flicker sources
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+00:01 +19 -2: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the bottom bar switches instantly, with no flicker sources [E]
+  Test failed. See exception logs above.
+  The test description was: the bottom bar switches instantly, with no flicker sources
+  
+00:01 +19 -2: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the tab switch is a single-frame hard swap, never a crossfade
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following TestFailure was thrown running a test:
+Expected: Color:<Color(alpha: 0.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace:
+ColorSpace.sRGB)>
+  Actual: Color:<Color(alpha: 1.0000, red: 0.9804, green: 0.9490, blue: 0.9020, colorSpace:
+ColorSpace.sRGB)>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart:350:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart line 350
+The test description was:
+  the tab switch is a single-frame hard swap, never a crossfade
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+00:02 +19 -3: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the tab switch is a single-frame hard swap, never a crossfade [E]
+  Test failed. See exception logs above.
+  The test description was: the tab switch is a single-frame hard swap, never a crossfade
+  
+00:02 +19 -3: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar each tab keeps its state across a switch (IndexedStack)
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following assertion was thrown running a test:
+The finder "Found 2 widgets with icon "IconData(U+0F8B4)": [
+  Icon(IconData(U+0F8B4), size: 20.0, color: Color(alpha: 1.0000, red: 0.6902, green: 0.4784, blue:
+0.1647, colorSpace: ColorSpace.sRGB), dependencies: [Directionality, IconTheme]),
+  Icon(IconData(U+0F8B4), size: 20.0, color: Color(alpha: 1.0000, red: 0.4784, green: 0.4353, blue:
+0.3765, colorSpace: ColorSpace.sRGB), dependencies: [Directionality, IconTheme]),
+]" (used in a call to "tap()") ambiguously found multiple matching widgets. The "tap()" method needs
+a single target.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2100:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart:372:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  each tab keeps its state across a switch (IndexedStack)
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+00:02 +19 -4: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar each tab keeps its state across a switch (IndexedStack) [E]
+  Test failed. See exception logs above.
+  The test description was: each tab keeps its state across a switch (IndexedStack)
+  
+00:02 +19 -4: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the live bottom dock paints no blur or shadow band at all
+00:02 +20 -4: Some tests failed.
+
+Failing tests:
+  C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar each tab keeps its state across a switch (IndexedStack)
+  C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the bottom bar switches instantly, with no flicker sources
+  C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the reading stack paints its warm paper panel, never white
+  C:/Users/sposi/OneDrive/Desktop/biblenow/scripture_sermon_studio/test/app_theme_tokens_test.dart: Paper recipes (ReaderPalette study paper) + snappy 2-tab bottom bar the tab switch is a single-frame hard swap, never a crossfade

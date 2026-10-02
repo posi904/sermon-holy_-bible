@@ -12,7 +12,7 @@
 // (#F6EFDF) under its #DCCBA8 hairline (r15 reading cards) and the warm
 // parchment book-picker rows (r12 gradient tiles with the shared micro-lift
 // shadow) — plus the 2-tab bottom bar's permanently shadow-free dock and its
-// 150ms fade/slide tab switch.
+// deliberately animation-free (instant, flicker-free) tab switch.
 
 import 'dart:math' as math;
 
@@ -22,6 +22,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:scripture_sermon_studio/core/l10n.dart';
 
 import 'package:scripture_sermon_studio/core/theme/app_theme.dart';
+import 'package:scripture_sermon_studio/core/reader_session.dart';
 import 'package:scripture_sermon_studio/main.dart';
 import 'package:scripture_sermon_studio/screens/dummy_bible_reader_screen.dart';
 
@@ -293,28 +294,21 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('the bottom bar switches with one 150ms shadow-free fade/slide',
+    testWidgets('the bottom bar switches instantly, with no flicker sources',
         (WidgetTester tester) async {
       await tester.pumpWidget(const ScriptureSermonStudioApp());
       await tester.pump(const Duration(milliseconds: 100));
 
-      // The 2-tab dock (Bible Reader / Sermon Notes) crossfades each tab
-      // through the shared 150ms switch.
-      final List<AnimatedSwitcher> switchers = tester
-          .widgetList<AnimatedSwitcher>(find.byType(AnimatedSwitcher))
-          .where((s) => s.duration == const Duration(milliseconds: 150))
-          .toList();
-      expect(switchers, isNotEmpty);
+      // The dock paints NO implicit animation at all. An `AnimatedSwitcher`
+      // used to key the icon+label on `selected`, keeping the outgoing AND the
+      // incoming label alive together so they cross-faded (the blink); an
+      // `AnimatedContainer` lerped the wash through a muddy half-alpha grey.
+      // Neither may return.
+      expect(find.byType(AnimatedSwitcher), findsNothing);
+      expect(find.byType(AnimatedContainer), findsNothing);
 
-      // ...while the tab wash declares NO BoxShadow at all, so no blur can be
-      // interpolated frame-by-frame mid-switch.
-      final AnimatedContainer wash = tester.widget<AnimatedContainer>(
-        find.ancestor(
-          of: find.text(AppText.of('te').navReader),
-          matching: find.byType(AnimatedContainer),
-        ),
-      );
-      expect((wash.decoration! as BoxDecoration).boxShadow, isEmpty);
+      // The tab wash declares NO BoxShadow, so no blur can ever be painted.
+      expect(_pillOf(tester, AppText.of('te').navReader).boxShadow, isEmpty);
 
       // The shell boots on the Bible Reader tab...
       expect(
@@ -322,16 +316,66 @@ void main() {
         0,
       );
 
-      // ...and a real tap on the Sermon Notes tab swaps the shell without
-      // throwing mid-animation.
+      // ...and a real tap on the Sermon Notes tab swaps the shell on the VERY
+      // FIRST frame — no settle/animation frames are needed, which is what
+      // "instant" means here.
       await tester.tap(find.byIcon(Icons.edit_note_rounded));
-      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pump();
       expect(tester.takeException(), isNull);
-      await tester.pump(const Duration(milliseconds: 200));
       expect(
         tester.widget<IndexedStack>(find.byType(IndexedStack)).index,
         1,
       );
+    });
+
+    testWidgets('the tab switch is a single-frame hard swap, never a crossfade',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const ScriptureSermonStudioApp());
+      await tester.pump(const Duration(milliseconds: 100));
+
+      Color? washOf(String label) =>
+          _pillOf(tester, label).color;
+
+      final String reader = AppText.of('te').navReader; // బైబిల్ పఠనం
+      final String notes = AppText.of('te').navNotes; // ప్రసంగ నోట్స్
+      final Color? activeWash = washOf(reader);
+
+      await tester.tap(find.byIcon(Icons.edit_note_rounded));
+      // Exactly one pump: if anything were animating, the two tabs would still
+      // be mid-interpolation here.
+      await tester.pump();
+
+      // Each frame paints ONE resting + ONE active tab. No frame in between.
+      expect(washOf(notes), activeWash);
+      expect(washOf(reader), Colors.transparent);
+      expect(find.text(reader), findsOneWidget);
+      expect(find.text(notes), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('each tab keeps its state across a switch (IndexedStack)',
+        (WidgetTester tester) async {
+      ReaderSession.instance.language.value = 'en';
+      await tester.pumpWidget(const ScriptureSermonStudioApp());
+      await tester.pump(const Duration(milliseconds: 100));
+
+      // Type a sermon title, leave, and come back: the note must still be there,
+      // proving the screen was never rebuilt or torn down.
+      await tester.tap(find.byIcon(Icons.edit_note_rounded));
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.enterText(
+        find.byType(TextField).first,
+        'Amen',
+      );
+      await tester.pump();
+
+      await tester.tap(find.byIcon(Icons.menu_book_rounded));
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.tap(find.byIcon(Icons.edit_note_rounded));
+      await tester.pump(const Duration(milliseconds: 100));
+
+      expect(find.text('Amen'), findsOneWidget);
+      expect(tester.takeException(), isNull);
     });
 
     testWidgets('the live bottom dock paints no blur or shadow band at all',
@@ -365,6 +409,36 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+}
+
+/// The dock's own [Container] — the only one painted the canvas-matched
+/// sandalwood face (#FAF2E6). Doubles as the anchor for scoping nav-bar taps.
+Finder _dockFinder() => find.byWidgetPredicate(
+      (Widget w) =>
+          w is Container &&
+          w.decoration is BoxDecoration &&
+          (w.decoration! as BoxDecoration).color == const Color(0xFFFAF2E6),
+    );
+
+/// The label [Text] of the nav tab named [label], scoped to the dock so it
+/// never collides with an identically-named control inside a screen.
+Finder _tabLabel(String label) =>
+    find.descendant(of: _dockFinder(), matching: find.text(label));
+
+/// The amber wash [BoxDecoration] currently painted by the nav pill that holds
+/// [label]. Ancestors come back innermost-first, so the pill is the FIRST hit
+/// (the dock itself is a further ancestor).
+BoxDecoration _pillOf(WidgetTester tester, String label) {
+  final List<Container> pills = tester
+      .widgetList<Container>(
+        find.ancestor(
+          of: _tabLabel(label),
+          matching: find.byType(Container),
+        ),
+      )
+      .toList();
+  expect(pills, isNotEmpty, reason: 'the "$label" tab must sit in a pill');
+  return pills.first.decoration! as BoxDecoration;
 }
 
 /// Every [BoxDecoration] currently painted by a [Container] in the tree.

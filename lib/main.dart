@@ -11,11 +11,20 @@ import 'core/theme/reader_theme.dart';
 import 'screens/dummy_bible_reader_screen.dart';
 import 'screens/dummy_sermon_notes_screen.dart';
 
-/// The ONE tab-switch duration of the bottom bar — a snappy 150ms cross-fade:
-/// fast enough that the selected indicator never appears to lag behind the
-/// tap, slow enough to read as one smooth fade. Shared by the amber wash and
-/// the icon/label crossfade so the two can never drift out of step.
-const Duration _kTabSwitchDuration = Duration(milliseconds: 150);
+/// The bottom navigation switches with NO animation at all — deliberately.
+///
+/// The flicker this replaces had two independent sources, and both are gone:
+///  * the `AnimatedSwitcher` keyed on `selected` painted the outgoing and the
+///    incoming icon+label at the same time, so the two labels cross-faded over
+///    one another (the "blink");
+///  * the `AnimatedContainer` lerped the wash from `Colors.transparent` into
+///    the amber fill, dragging every in-between frame through a muddy
+///    50%-alpha grey-brown (`0x7F79756B`) — the momentary flash, which read
+///    differently in each reading theme.
+///
+/// A single-frame hard swap has no intermediate frames, so there is nothing
+/// left to flash. The body is an [IndexedStack], so the screens themselves are
+/// never torn down and rebuilt either.
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -257,6 +266,10 @@ class _FloatingNavigationBar extends StatelessWidget {
 }
 
 /// A single tappable destination inside the bar.
+///
+/// The tab switch is deliberately INSTANT: the wash, the hairline and the ink
+/// are all plain hard swaps in a single rebuild. Nothing here animates, and
+/// that is the whole point — see [_kNoTabAnimation].
 class _NavItem extends StatelessWidget {
   const _NavItem({
     required this.icon,
@@ -293,12 +306,13 @@ class _NavItem extends StatelessWidget {
         child: SizedBox(
           height: 52,
           child: Center(
-            child: AnimatedContainer(
-              // ONE snappy 200ms transition — and the amber wash is the ONLY
-              // animatable property, so a tab switch can never blink, flicker
-              // or shift geometry.
-              duration: _kTabSwitchDuration,
-              curve: Curves.easeOut,
+            // A PLAIN Container, not an AnimatedContainer. Animating the fill
+            // between `Colors.transparent` and the amber wash forced every
+            // in-between frame through a muddy 50%-alpha grey-brown
+            // (`0x7F79756B`) — the one-frame flash that smeared across the dock
+            // on every tap and looked different in each reading theme. Hard-
+            // swapping removes the intermediate frames, so none can exist.
+            child: Container(
               // Full-tab active state: a soft amber wash wraps BOTH the
               // icon and the text label inside one unified surface, so the
               // whole destination — not just its icon — highlights when
@@ -308,7 +322,7 @@ class _NavItem extends StatelessWidget {
               decoration: BoxDecoration(
                 // Active tab wears the soft amber wash (#F3EAD7) over the
                 // dock; resting tabs stay transparent with only their muted
-                // icon + label.
+                // icon + label. Safe as a literal now that nothing animates.
                 color: selected ? Palette.c(0xFFF3EAD7) : Colors.transparent,
                 borderRadius: BorderRadius.circular(16),
                 // 1px hairline (transparent while resting, so no geometry ever
@@ -320,68 +334,45 @@ class _NavItem extends StatelessWidget {
                 ),
                 // Strictly EMPTY const shadow list on BOTH the active and the
                 // inactive state: no `BoxShadow` is ever declared, so none can
-                // be interpolated frame-by-frame during the switch — that
-                // animated blur was the lingering shadow artifact. The tab
-                // lifts through colour + content motion ONLY.
+                // be painted or interpolated during the switch.
                 boxShadow: const [],
               ),
-              // The icon + label crossfade through ONE 200ms fade/slide (the
-              // same recipe the reader's quick-picker already uses) instead of a
-              // hard-cut rebuild, so the newly chosen tab visibly settles into
-              // place while the tab being left slides quietly away. Keying the
-              // column on [selected] is what drives the switch: no shadow, no
-              // blur and no size change ride along with it.
-              child: AnimatedSwitcher(
-                duration: _kTabSwitchDuration,
-                switchInCurve: Curves.easeOut,
-                switchOutCurve: Curves.easeIn,
-                transitionBuilder:
-                    (Widget child, Animation<double> animation) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0, 0.12),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    ),
-                  );
-                },
-                child: Column(
-                  // The key is the entire switch: flipping [selected] swaps the
-                  // keyed subtree and fires the fade/slide above.
-                  key: ValueKey<bool>(selected),
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      selected ? activeIcon : icon,
-                      size: 20,
-                      color: selected ? activeInk : restingInk,
-                    ),
-                    const SizedBox(height: 2),
-                    // FittedBox(scaleDown) guarantees the label occupies
-                    // exactly ONE line at all times — long labels such as
-                    // "Sermon Notes" or "Prayer Journal" scale down instead
-                    // of wrapping, so the pill height never grows.
-                    FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        label,
-                        maxLines: 1,
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          fontWeight:
-                              selected ? FontWeight.w700 : FontWeight.w500,
-                          color: selected ? activeInk : restingInk,
-                        ),
+              // The icon + label are rendered ONCE and recoloured instantly.
+              // The former `AnimatedSwitcher` keyed on [selected] kept the
+              // outgoing and the incoming column alive at the same time, so
+              // both Telugu labels were painted over one another and
+              // cross-faded — the "blink" seen on every switch. A single stable
+              // subtree that simply changes colour is instant by construction.
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    selected ? activeIcon : icon,
+                    size: 20,
+                    color: selected ? activeInk : restingInk,
+                  ),
+                  const SizedBox(height: 2),
+                  // FittedBox(scaleDown) guarantees the label occupies
+                  // exactly ONE line at all times — long labels such as
+                  // "Sermon Notes" or "Prayer Journal" scale down instead
+                  // of wrapping, so the pill height never grows.
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      softWrap: false,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 11.0,
+                        fontWeight:
+                            selected ? FontWeight.w700 : FontWeight.w500,
+                        color: selected ? activeInk : restingInk,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
