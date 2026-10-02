@@ -9,9 +9,9 @@ class PlatformService {
   static const MethodChannel _channel =
       MethodChannel('scripture_sermon_studio/platform');
 
-  /// The Play Store listing id. CHANGE THIS to your real applicationId before
-  /// publishing (it must match `applicationId` in android/app/build.gradle).
-  static const String storeId = 'com.example.scripture_sermon_studio';
+  /// The Play Store listing id. Must match `applicationId` in
+  /// android/app/build.gradle.kts.
+  static const String storeId = 'com.posibabu.holybible';
 
   static String get storeUrl =>
       'https://play.google.com/store/apps/details?id=$storeId';

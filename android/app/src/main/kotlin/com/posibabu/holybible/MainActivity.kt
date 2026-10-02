@@ -1,4 +1,4 @@
-package com.example.scripture_sermon_studio
+package com.posibabu.holybible
 
 import android.content.ActivityNotFoundException
 import android.content.Intent

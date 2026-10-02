@@ -5,7 +5,7 @@ import '../core/theme/app_theme.dart';
 /// Keep in sync with `version:` in pubspec.yaml.
 const String kAppVersionName = '1.0.0';
 const String kAppBuildNumber = '1';
-const String kAppName = 'Scripture & Sermon Studio';
+const String kAppName = 'Holy Bible';
 
 /// Settings > About Us. Everything here is static and works offline.
 class AboutScreen extends StatelessWidget {

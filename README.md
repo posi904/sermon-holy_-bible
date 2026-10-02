@@ -81,8 +81,10 @@ looking it up per theme (`Palette.c`, tables in `palette_tables.dart`). Because
 colours are looked up at build time, most widgets are no longer `const`, so the
 two `prefer_const_*` style lints are switched off in `analysis_options.yaml`.
 
-**Before publishing**: set `PlatformService.storeId` (and `applicationId` in
-`android/app/build.gradle`) to your real package name.
+**Publishing**: the application ID is `com.posibabu.holybible` — set in
+`android/app/build.gradle.kts` (both `namespace` and `applicationId`) and
+mirrored by `PlatformService.storeId` in `lib/core/services/platform_service.dart`.
+The launcher label `Holy Bible` is set in `android/app/src/main/AndroidManifest.xml`.
 
 ## Project structure
 
