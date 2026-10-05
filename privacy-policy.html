@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy &mdash; Holy Bible</title>
+<meta name="description" content="Privacy Policy for Holy Bible. The app works fully offline, collects no personal data, contains no ads and no tracking." />
+<meta name="theme-color" content="#FFF9ED" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%93%94%3C/text%3E%3C/svg%3E" />
+<style>
+  :root{
+    --canvas:#FFF9ED;
+    --paper:#FFF9EE;
+    --paper-2:#FAF2E6;
+    --edge:#EAD4B5;
+    --edge-soft:#F1E5CF;
+    --ink:#261D16;
+    --ink-soft:#5A442E;
+    --ink-faint:#7A6F60;
+    --gold:#B07A2A;
+    --gold-soft:#CFA95F;
+    --seal:#38230D;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    padding:0 18px 72px;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans Telugu","Noto Sans Devanagari",sans-serif;
+    font-size:17px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:720px;margin:0 auto;}
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;}
+
+  header.hero{
+    margin:0 -18px 0;
+    padding:38px 22px 30px;
+    background:linear-gradient(180deg,#FDF4E3 0%,var(--canvas) 100%);
+    border-bottom:1px solid var(--edge);
+    text-align:center;
+  }
+  .mark{
+    font-size:34px;line-height:1;
+    width:64px;height:64px;margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(180deg,#F7E6C4,#EAD9B4);
+    border:1px solid var(--gold-soft);
+    box-shadow:0 2px 10px rgba(112,90,60,.14);
+  }
+  h1{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:2rem;line-height:1.22;margin:0 0 6px;
+    font-weight:700;letter-spacing:-.01em;color:var(--seal);
+  }
+  .tagline{margin:0;color:var(--ink-soft);font-size:1rem;font-style:italic;}
+  .eyebrow{
+    margin:16px auto 0;display:inline-block;
+    font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);background:#F7E6C4;
+    border:1px solid var(--gold-soft);
+    padding:5px 14px;border-radius:999px;
+  }
+  .updated{margin:14px 0 0;font-size:.82rem;color:var(--ink-faint);}
+
+  .card{
+    background:var(--paper);
+    border:1px solid var(--edge);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    margin:22px 0;
+    box-shadow:0 1px 3px rgba(112,90,60,.06);
+  }
+  .summary{border-left:4px solid var(--gold);background:#FDF6E7;}
+  .summary p{margin:0 0 10px;}
+  .summary p:last-child{margin-bottom:0;}
+
+  h2{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:1.3rem;line-height:1.3;margin:34px 0 4px;
+    color:var(--seal);letter-spacing:-.005em;
+  }
+  h2 .num{color:var(--gold);font-variant-numeric:tabular-nums;}
+  h3{font-size:1.02rem;margin:20px 0 4px;color:var(--ink);}
+  p{margin:10px 0;}
+  ul{margin:10px 0;padding-left:0;list-style:none;}
+  li{margin:9px 0;padding-left:26px;position:relative;}
+  li::before{
+    content:"";position:absolute;left:6px;top:.66em;
+    width:6px;height:6px;border-radius:50%;background:var(--gold-soft);
+  }
+  strong{color:var(--seal);font-weight:700;}
+  a{color:var(--gold);text-underline-offset:3px;overflow-wrap:anywhere;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;padding:0;list-style:none;}
+  .chips li{
+    margin:0;padding:6px 13px;border-radius:999px;
+    background:#F7E6C4;border:1px solid var(--gold-soft);
+    color:#4A2800;font-size:.85rem;font-weight:600;white-space:nowrap;
+  }
+  .chips li::before{display:none;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 4px;font-size:.93rem;}
+  caption{caption-side:bottom;text-align:left;color:var(--ink-faint);font-size:.82rem;padding-top:8px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--edge-soft);vertical-align:top;}
+  thead th{
+    font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--gold);border-bottom:1px solid var(--edge);background:#FDF6E7;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:600;color:var(--seal);white-space:nowrap;}
+
+  .callout{
+    background:var(--paper-2);border:1px dashed var(--gold-soft);
+    border-radius:12px;padding:16px 18px;margin:18px 0;
+  }
+  .callout p{margin:0;}
+  .hr{height:1px;background:linear-gradient(90deg,transparent,var(--edge),transparent);border:0;margin:34px 0;}
+
+  footer{
+    margin:40px -18px 0;padding:26px 22px 40px;
+    border-top:1px solid var(--edge);background:#FBF3E3;
+    text-align:center;color:var(--ink-soft);font-size:.88rem;
+  }
+  footer .app{font-weight:700;color:var(--seal);}
+  footer p{margin:6px 0;}
+
+  @media (min-width:640px){
+    body{padding:0 28px 88px;font-size:18px;}
+    header.hero{margin:0 -28px 0;padding:52px 32px 40px;}
+    h1{font-size:2.5rem;}
+    h2{font-size:1.5rem;}
+    .card{padding:26px 28px 24px;}
+    footer{margin:48px -28px 0;padding:32px 28px 48px;}
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --canvas:#1E1811;--paper:#262019;--paper-2:#2E261C;
+      --edge:#453724;--edge-soft:#3A2E1F;
+      --ink:#EFE6D4;--ink-soft:#CDBBA0;--ink-faint:#A4947C;
+      --gold:#E0B872;--gold-soft:#B99456;--seal:#F7E6C4;
+    }
+    body{background:#1E1811;}
+    header.hero{background:linear-gradient(180deg,#251E16 0%,#1E1811 100%);border-bottom-color:#453724;}
+    .mark{background:linear-gradient(180deg,#3A2E1F,#2E261C);}
+    .summary{background:#2A2219;}
+    th,td{border-bottom-color:#3A2E1F;}
+    thead th{background:#2A2219;border-bottom-color:#453724;}
+    .chips li{background:#33291D;color:#F7E6C4;border-color:#4A3B27;}
+    .callout{background:#2A2219;}
+    footer{background:#1F1912;border-top-color:#453724;}
+  }
+  @media print{
+    body{padding:0;font-size:11pt;}
+    header.hero,footer{background:none;border:1px solid #ddd;}
+    .card{box-shadow:none;break-inside:avoid;}
+    a{color:#000;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="mark" aria-hidden="true">&#128218;</div>
+  <h1>Privacy Policy</h1>
+  <p class="tagline serif">Distraction-free Word for Believers.</p>
+  <span class="eyebrow">No data collected &middot; Works offline</span>
+  <p class="updated">Last updated: 10 October 2026</p>
+</header>
+
+<section class="card summary" aria-label="Summary">
+  <p><strong>In plain words:</strong> Holy Bible is an offline Bible reader and
+  sermon-note app. It does not use the internet, does not ask you to create an
+  account, and does not collect, store, transmit or sell any personal
+  information &mdash; not your name, not your email, not your device ID, and not
+  your location.</p>
+  <p>Everything you create in the app (bookmarks, favourites, reading themes,
+  reading progress and your Sermon Notes) stays in private storage on your own
+  device. There is no server behind the app for it to talk to.</p>
+</section>
+
+<h2><span class="num">1.</span> Who we are</h2>
+<p>Holy Bible (&ldquo;the app&rdquo;) is a free Android application published by
+its developer for readers, students and churches. Its purpose is to offer a calm,
+distraction-free place to read the Word of God and to write sermons. This policy
+explains what happens to information when you use the app.</p>
+
+<h2><span class="num">2.</span> The app works fully offline</h2>
+<p>This is the single most important fact in this document. The app is designed
+to run without a network connection:</p>
+<ul>
+  <li>The Bible text in <strong>Telugu, English and Hindi</strong> is bundled
+  inside the app and reads from on-device storage.</li>
+  <li>The app does <strong>not</strong> declare the Android internet permission,
+  so it is technically incapable of connecting to a server.</li>
+  <li>Cleartext traffic is disabled and Android cloud backup is switched off.</li>
+  <li>You can use the full reading, study, notes and settings experience on a
+  plane, in a basement, or anywhere with no signal.</li>
+</ul>
+
+<h2><span class="num">3.</span> What we do <u>not</u> collect</h2>
+<p>We do not collect, store, transmit, sell, rent or trade any personal user
+data. Specifically, the app never asks for, accesses or has access to:</p>
+<ul class="chips">
+  <li>Name</li>
+  <li>Email address</li>
+  <li>Phone number</li>
+  <li>Device or advertising ID</li>
+  <li>GPS / precise or coarse location</li>
+  <li>Contacts</li>
+  <li>Photos or media files</li>
+  <li>Microphone or camera</li>
+  <li>Call logs or SMS</li>
+  <li>Files outside the app sandbox</li>
+  <li>Health or fitness data</li>
+  <li>Payment details</li>
+</ul>
+<p>There is no sign-up, no login, no password and no user account. Because we
+operate no servers and no accounts, there is no profile about you anywhere.</p>
+
+<div class="callout">
+  <p><strong>Android permissions:</strong> the app requests <em>no runtime
+  permissions at all</em>. There is no internet, camera, microphone, contacts,
+  storage, location or phone permission in the app manifest.</p>
+</div>
+
+<h2><span class="num">4.</span> What is stored &mdash; and where</h2>
+<p>The app saves only what you actively create or choose, using a private SQLite
+database and preferences held in the app&rsquo;s own sandbox directory on your
+device. None of it leaves your phone.</p>
+<table>
+  <caption>Everything the app persists, and where it lives.</caption>
+  <thead>
+    <tr><th scope="col">What</th><th scope="col">Why</th><th scope="col">Where</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Bookmarks &amp; Favourites</td><td>To re-open saved verses instantly</td><td>Local SQLite (<code>study.db</code>)</td></tr>
+    <tr><td>Sermon Notes</td><td>Your own sermon drafts and scripture references</td><td>Local SQLite, app-private</td></tr>
+    <tr><td>Reading progress</td><td>To resume a chapter and show reading history</td><td>Local SQLite, app-private</td></tr>
+    <tr><td>Reading theme</td><td>To remember Warm Parchment / Soft Sage / Paper Cream / Midnight Charcoal</td><td>Local preferences</td></tr>
+    <tr><td>Font size &amp; reading language</td><td>To restore your reading comfort settings</td><td>Local preferences</td></tr>
+  </tbody>
+</table>
+<p>This information is <strong>never uploaded, synced, backed up to a server, or
+made available to us or to anyone else</strong>. We cannot read it, and we have
+no copy of it.</p>
+
+<h2><span class="num">5.</span> No advertising, no analytics, no tracking</h2>
+<p>The app contains <strong>no third-party advertising networks</strong> and
+<strong>no analytics or tracking SDKs</strong>. There is no Google Ads, AdMob,
+Facebook SDK, Firebase Analytics, App Center, Crashlytics, or any comparable
+telemetry, attribution or fingerprinting library embedded in the app.</p>
+<ul>
+  <li>No ads are shown &mdash; not banner, not interstitial, not sponsored
+  results.</li>
+  <li>No analytics events, screen-view reports, sessions or usage statistics are
+  recorded or sent anywhere.</li>
+  <li>No advertising ID is read, and no cross-app or cross-site tracking or
+  fingerprinting occurs.</li>
+  <li>Your reading habits are not profiled, and the app contains nothing that
+  would allow it to be.</li>
+  <li>The app is entirely free and shows no in-app purchases, subscriptions or
+  paid content.</li>
+</ul>
+<p>The only third-party code inside the app is a handful of standard,
+permissively-licensed open-source software libraries used to build the
+interface and store data locally (for example Flutter). None of them transmit
+your data.</p>
+
+<h2><span class="num">6.</span> Sharing, export and ratings</h2>
+<p>Sharing only ever happens when <strong>you</strong> explicitly choose it. The
+app can hand a passage, a verse or a sermon note to another app through Android&rsquo;s
+normal share sheet. That text goes directly from your device to the app you
+picked; we are not involved and we never receive it. The same is true of the
+&ldquo;Rate the app&rdquo; button, which simply opens your phone&rsquo;s link to the
+Google Play listing. We do not receive reviews or ratings through any private
+channel.</p>
+
+<h2><span class="num">7.</span> Data retention and deletion</h2>
+<p>Because data is stored only on your device, you are in complete control of
+it:</p>
+<ul>
+  <li>You can delete an individual Sermon Note, bookmark or favourite from within
+  the app at any time.</li>
+  <li>You can clear reading history and reset your settings from within the app.</li>
+  <li><strong>Uninstalling the app permanently deletes all of its local data.</strong>
+  There is no cloud copy and no backup we could restore it from, so please export
+  or re-type anything you want to keep before uninstalling.</li>
+  <li>Because we hold no data about you, there is nothing for us to export,
+  correct or delete on request.</li>
+</ul>
+
+<h2><span class="num">8.</span> Children&rsquo;s privacy</h2>
+<p>Holy Bible is suitable for readers of all ages, including children and
+teenagers. Since the app collects no personal information from anyone &mdash;
+adults or children &mdash; there is no special handling to describe. We never
+know who is using the app, and a child&rsquo;s notes are protected exactly as an
+adult&rsquo;s are: on their own device, and nowhere else.</p>
+
+<h2><span class="num">9.</span> Security</h2>
+<p>Privacy by architecture is the strongest form of security, and it is the one
+we have chosen:</p>
+<ul>
+  <li>No network stack means no transmission, no interception, no breach
+  surface.</li>
+  <li>Data is confined to the app&rsquo;s private sandbox, which is isolated from
+  other apps and requires the device unlock to access in normal use.</li>
+  <li>Android cloud backup and cleartext traffic are disabled for the app.</li>
+  <li>Uninstalling removes the data permanently.</li>
+</ul>
+<p>Please note that we cannot recover anything for you: because we never receive
+a copy, we also have no way to restore it.</p>
+
+<h2><span class="num">10.</span> Scripture text and app content</h2>
+<p>The Bible translations included in the app are in the public domain or are
+made freely available by their publishers. The app&rsquo;s interface text, icons
+and design are the property of the developer. Reading and using the app grants no
+rights to the underlying text beyond your own fair personal use. Please do not
+republish the translations as part of another product without checking the
+terms that apply to them.</p>
+
+<h2><span class="num">11.</span> Your sermon notes</h2>
+<p>Your notes are your own. They are private to you, are not shared with any
+other user, are not shown to the developer, and are not used for any purpose.
+Because they never leave your device, we are also not responsible for their loss
+&mdash; please keep your own copy of anything important.</p>
+
+<h2><span class="num">12.</span> Changes to this policy</h2>
+<p>If this policy ever changes, the &ldquo;Last updated&rdquo; date at the top of
+this page will change and the revised policy will be published at this same
+address. Any material change will be announced in the app&rsquo;s release notes on
+Google Play. Continuing to use the app after a change means you accept the
+updated policy.</p>
+
+<hr class="hr">
+
+<h2><span class="num">13.</span> Contact us</h2>
+<p>If you have any question, concern or request about this privacy policy, or
+about Holy Bible in general, we would be glad to hear from you:</p>
+<div class="card">
+  <!-- REPLACE: swap this address for your real published support mailbox
+       before submitting this page for Play Store review. -->
+  <p><strong>Holy Bible &mdash; Developer</strong><br>
+  Email: <a href="mailto:YOUR_SUPPORT_EMAIL_HERE">YOUR_SUPPORT_EMAIL_HERE</a></p>
+  <p style="margin-bottom:0"><strong>Preferred way to reach us:</strong> the email
+  address above. Because we collect no data, we are not able to look up anything
+  about a user account &mdash; please include enough detail in your message for us
+  to identify the app and the issue.</p>
+</div>
+<p>We aim to reply to every message. Please note that we cannot recover, restore
+or delete data on your device on your behalf, for the simple reason that we never
+receive it.</p>
+
+<footer>
+  <p class="app serif">Holy Bible</p>
+  <p>Distraction-free Word for Believers.</p>
+  <hr class="hr">
+  <p><strong>Offline by design.</strong> No account &middot; No ads &middot;
+  No analytics &middot; No data collection.</p>
+  <p>Your notes, bookmarks and reading progress stay on your device.</p>
+  <p style="opacity:.75">&copy; <span id="year">2026</span> Holy Bible &middot;
+  Privacy Policy</p>
+</footer>
+
+<script>
+  // Keep the copyright year current without any external dependency.
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</div>
+</body>
+</html>
