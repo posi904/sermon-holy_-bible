@@ -12,3 +12,7 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+# Explicit signing secrets for this app (never commit these).
+/key.properties
+/app/upload-keystore.jks

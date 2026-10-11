@@ -9,3 +9,9 @@ build/
 *.iml
 *.lock
 .DS_Store
+
+# Android signing secrets - never commit these.
+/android/key.properties
+/android/app/upload-keystore.jks
+**/*.jks
+**/*.keystore

@@ -16,7 +16,7 @@ plugins {
 }
 
 android {
-    namespace = "com.posibabu.holybible"
+    namespace = "com.teja.holybible"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -26,7 +26,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.posibabu.holybible"
+        applicationId = "com.teja.holybible"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -38,7 +38,19 @@ android {
     signingConfigs {
         if (keystoreProps.containsKey("storeFile")) {
             create("release") {
-                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
+                // `storeFile` is resolved relative to android/app/ first, so a plain
+                // "upload-keystore.jks" means android/app/upload-keystore.jks, with a
+                // fallback to being relative to android/ (e.g. "app/upload-keystore.jks").
+                // An absolute path is honoured by both lookups as-is.
+                val declared = keystoreProps.getProperty("storeFile")
+                val candidates = listOf(project.file(declared), rootProject.file(declared))
+                storeFile =
+                    candidates.firstOrNull { it.exists() }
+                        ?: error(
+                            "Release keystore for storeFile=\"$declared\" not found. Looked in: " +
+                                candidates.joinToString(", ") +
+                                ". Restore the keystore or fix android/key.properties."
+                        )
                 storePassword = keystoreProps.getProperty("storePassword")
                 keyAlias = keystoreProps.getProperty("keyAlias")
                 keyPassword = keystoreProps.getProperty("keyPassword")
